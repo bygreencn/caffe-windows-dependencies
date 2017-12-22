@@ -101,16 +101,8 @@ ExternalProject_Add ( snappy
 # todo FIX debug optimized libraries for snappy
 set(SNAPPY_ROOT_DIR ${CMAKE_INSTALL_PREFIX}/snappy)
 
-add_subdirectory(opencv)
-set(OpenCV_DIR ${CMAKE_INSTALL_ PREFIX}/OpenCV)
-
-add_subdirectory(hdf5)
-
-set(HDF5_HL_INCLUDE_DIR          "${CMAKE_INSTALL_PREFIX}/hdf5/include"          CACHE PATH "hdf5 hl include dir")
-set(HDF5_hdf5_LIBRARY_RELEASE    "${CMAKE_INSTALL_PREFIX}/hdf5/lib/libhdf5.lib"    CACHE PATH "hdf5 library")
-set(HDF5_hdf5_hl_LIBRARY_RELEASE "${CMAKE_INSTALL_PREFIX}/hdf5/lib/libhdf5_hl.lib" CACHE PATH "hdf5 hl library")
-set(HDF5_hdf5_LIBRARY_DEBUG      "${CMAKE_INSTALL_PREFIX}/hdf5/lib/libhdf5_D.lib"      CACHE PATH "hdf5 library")
-set(HDF5_hdf5_hl_LIBRARY_DEBUG   "${CMAKE_INSTALL_PREFIX}/hdf5/lib/libhdf5_hl_D.lib"   CACHE PATH "hdf5 hl library")
+find_package(OpenCV)
+find_package(hdf5)
 
 set(OpenBLAS_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/openblas/include" CACHE PATH "OpenBLAS include dir")
 set(OpenBLAS_LIB "${CMAKE_CURRENT_SOURCE_DIR}/openblas/lib/libopenblas.dll.a" CACHE FILEPATH "OpenBLAS lib")
